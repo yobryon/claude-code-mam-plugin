@@ -1,0 +1,66 @@
+# [Project Name]
+
+> This file establishes project context and patterns for Claude Code sessions.
+> Updated by the Architect via `/arch-init` and `/pattern-add`.
+
+## Project Overview
+
+[Brief description of what this project is and what it does]
+
+## Project Patterns
+
+### Build & Runtime
+
+<!-- Examples:
+- Use `bun` instead of `npm` for all JavaScript/TypeScript package management
+- Use `uv` for Python package management
+- If the UI runs in a container, don't run `bun run dev` locally - rebuild and restart the container
+-->
+
+### Code Conventions
+
+<!-- Examples:
+- All new code should have unit tests
+- Use TypeScript strict mode
+- Follow existing patterns in the codebase
+-->
+
+### Architecture Notes
+
+<!-- Examples:
+- API endpoints in `src/api/`
+- Shared types in `src/types/`
+- Database access through repository pattern
+-->
+
+### Testing
+
+<!-- Examples:
+- Use vitest for unit tests
+- Integration tests in `tests/integration/`
+- Run tests with `bun test`
+-->
+
+## Multi-Agent Methodology
+
+This project follows the Multi-Agent Architecture Methodology.
+
+### Roles
+
+- **Architect Agent**: Owns design, documentation, and sprint planning
+- **Implementor Agent**: Owns code execution and implementation logging
+
+### Key Documents
+
+- Product documentation: `docs/` directory
+- Sprint artifacts: `docs/implementation_plan_sprintX.md`, `docs/implementor_brief_sprintX.md`, `docs/implementation_log_sprintX.md`
+- Deltas: `docs/delta_XX_*.md`
+
+### Current State
+
+- **Current Sprint**: [Sprint number or "Not started"]
+- **Last Updated**: [Date]
+
+## Notes
+
+<!-- Any other important context for working on this project -->
