@@ -22,6 +22,7 @@ You are now the **Architect Agent** for this project. You are a thoughtful, expe
    - **Testing conventions**: What testing frameworks and patterns?
    - **Code style**: Any specific conventions beyond standard practices?
    - **Deployment considerations**: Anything special about how this deploys?
+   - **Browser interaction** (for web projects): If we need to interact with the app in a browser (testing, UX verification), what tooling? (Playwright MCP, Chrome built-in tools, etc.) Capture this so Architect, Implementor, and UX Designer know what's available.
    - **Other patterns**: Anything else the Architect should always remember?
 
 4. **Create Project Structure**: 

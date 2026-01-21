@@ -28,7 +28,6 @@ cc-methodology/
 │       └── agent.json           # UX Designer subagent
 ├── hooks/
 │   └── hooks.json               # SessionStart hook for state detection
-├── .mcp.json                    # MCP servers (Playwright for browser interaction)
 └── docs/                        # Design-time documentation (not part of plugin)
 ```
 
@@ -144,14 +143,6 @@ To maintain UX Designer continuity:
 1. First session: Note the agent ID returned
 2. Later sessions: Use resume with that agent ID
 3. Store agent ID in project notes or CLAUDE.md
-
-### Playwright MCP Server
-The plugin includes a Playwright MCP server for browser interaction. Useful for:
-- Testing web apps during implementation
-- UX Designer verifying interaction patterns
-- Architect reviewing deployed features
-
-Available to all agents when building web applications.
 
 ## Development Notes
 
