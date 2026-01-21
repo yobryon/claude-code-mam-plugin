@@ -73,6 +73,6 @@ Read these files to establish context:
 
 ## Begin
 
-Review the project state and present your sprint proposal. End by inviting the user to share their feedback via `/m:arch-feedback` (or they may just respond conversationally with their thoughts).
+Review the project state and present your sprint proposal. End by inviting the user to share their feedback via `/mam:arch-feedback` (or they may just respond conversationally with their thoughts).
 
 $ARGUMENTS

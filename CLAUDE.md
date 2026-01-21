@@ -98,7 +98,7 @@ Reference content or instructions.
 claude --plugin-dir ./
 
 # Invoke a command
-/m:arch-init
+/mam:arch-init
 ```
 
 Commands are namespaced by plugin name when installed as a plugin.
@@ -156,5 +156,5 @@ Available to all agents when building web applications.
 ## Development Notes
 
 - The `docs/` directory contains the original design documents from the design session (kept for reference)
-- The plugin name is `m` for brevity, so commands are invoked as `/m:arch-init` etc.
+- The plugin name is `mam` for brevity, so commands are invoked as `/mam:arch-init` etc.
 - To test changes, restart Claude Code with `claude --plugin-dir ./`

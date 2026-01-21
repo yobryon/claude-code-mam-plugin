@@ -24,7 +24,7 @@ claude --plugin-dir /path/to/cc-methodology
 ### Option 2: Install from Marketplace
 
 ```
-/plugin install m
+/plugin install mam
 ```
 
 ## Quick Start
@@ -33,58 +33,58 @@ claude --plugin-dir /path/to/cc-methodology
 
 1. **Initialize** (Architect session):
    ```
-   /m:arch-init
+   /mam:arch-init
 
    [Provide your initial design documents, research, ideas]
    ```
 
 2. **Discuss Architecture**:
    ```
-   /m:arch-discuss
+   /mam:arch-discuss
 
    [Share your architectural thinking]
    ```
 
 3. **Create Documentation**:
    ```
-   /m:arch-create-docs
+   /mam:arch-create-docs
    ```
 
 4. **Create Roadmap**:
    ```
-   /m:arch-roadmap
+   /mam:arch-roadmap
    ```
 
 5. **Plan First Sprint**:
    ```
-   /m:arch-sprint-plan
+   /mam:arch-sprint-plan
    ```
 
 6. **Process Feedback** (when you have thoughts/reactions):
    ```
-   /m:arch-feedback
+   /mam:arch-feedback
 
    [Share your feedback essay]
    ```
 
 7. **Finalize Sprint**:
    ```
-   /m:arch-sprint-finalize
+   /mam:arch-sprint-finalize
    ```
 
 8. **Switch to Implementor Session**:
    ```
-   /m:impl-start @docs/implementor_brief_sprint1.md
+   /mam:impl-start @docs/implementor_brief_sprint1.md
    ```
 
 9. **Complete Implementation Work**:
    ```
-   /m:impl-finalize
+   /mam:impl-finalize
    ```
 
 10. **Back to Architect Session**:
     ```
-    /m:arch-sprint-complete @docs/implementation_log_sprint1.md
+    /mam:arch-sprint-complete @docs/implementation_log_sprint1.md
     ```
 
 Then repeat the sprint cycle as needed.
@@ -157,7 +157,7 @@ When you start a Claude Code session on an existing project:
 
 1. **Auto-Detection**: The plugin automatically detects project state on session start
 2. **Correction**: If the detected state is wrong, tell the Architect: "We're actually in sprint 5"
-3. **Explicit Resume**: Use `/m:arch-resume` for full state review and correction
+3. **Explicit Resume**: Use `/mam:arch-resume` for full state review and correction
 
 The plugin scans for:
 - Current sprint info in `.claude/CLAUDE.md`
@@ -169,7 +169,7 @@ The plugin scans for:
 The Architect can invoke a UX Designer subagent for design collaboration:
 
 ```
-/m:ux-consult
+/mam:ux-consult
 
 Help me design the user interaction patterns for the dashboard feature.
 ```
