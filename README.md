@@ -1,6 +1,13 @@
 # Multi-Agent Architecture Methodology
 
-A Claude Code plugin for managing complex software projects using distinct Architect and Implementor agent roles.
+Claude Code plugins for managing complex software projects using distinct Architect and Implementor agent roles.
+
+## Two Plugin Variants
+
+| Plugin | Description | Best For |
+|--------|-------------|----------|
+| **MAM** | Session-based - Architect and Implementor as separate Claude sessions | Explicit context separation, document-based handoffs |
+| **MAMA** | Subagent-based - Architect orchestrates persistent Implementor subagent | Context continuity, iterative work |
 
 ## Features
 
@@ -10,128 +17,114 @@ A Claude Code plugin for managing complex software projects using distinct Archi
 - **Feedback loops**: Implementation logs and feedback cycles drive evolution
 - **Sprint-based development**: Coherent chunks of work with clear outcomes
 - **Auto-detection of project state**: SessionStart hook detects current sprint and artifacts
-- **Smart context loading**: Commands prompt reading of relevant documents before proceeding
-- **UX Designer subagent**: Persistent-context design collaborator for the Architect
+- **Smart context loading**: Commands prompt reading of relevant documents
+- **UX Designer subagent**: Persistent-context design collaborator
 
 ## Installation
 
-### Option 1: Test Locally
+### From Marketplace
 
 ```bash
-claude --plugin-dir /path/to/cc-methodology
+# Session-based workflow
+claude plugin install mam
+
+# Subagent-based workflow
+claude plugin install mama
 ```
 
-### Option 2: Install from Marketplace
+### Test Locally
 
+```bash
+# MAM (session-based)
+claude --plugin-dir /path/to/cc-methodology/plugins/mam
+
+# MAMA (subagent-based)
+claude --plugin-dir /path/to/cc-methodology/plugins/mama
 ```
-/plugin install mam
-```
 
-## Quick Start
-
-### Starting a New Project
+## Quick Start (MAM - Session-based)
 
 1. **Initialize** (Architect session):
    ```
    /mam:arch-init
-
    [Provide your initial design documents, research, ideas]
    ```
 
-2. **Discuss Architecture**:
-   ```
-   /mam:arch-discuss
-
-   [Share your architectural thinking]
-   ```
-
-3. **Create Documentation**:
-   ```
-   /mam:arch-create-docs
-   ```
-
-4. **Create Roadmap**:
-   ```
-   /mam:arch-roadmap
-   ```
-
-5. **Plan First Sprint**:
+2. **Plan Sprint**:
    ```
    /mam:arch-sprint-plan
    ```
 
-6. **Process Feedback** (when you have thoughts/reactions):
+3. **Process Feedback & Finalize**:
    ```
-   /mam:arch-feedback
-
-   [Share your feedback essay]
-   ```
-
-7. **Finalize Sprint**:
-   ```
+   /mam:arch-feedback [your thoughts]
    /mam:arch-sprint-finalize
    ```
 
-8. **Switch to Implementor Session**:
+4. **Switch to Implementor Session**:
    ```
-   /mam:impl-start @docs/implementor_brief_sprint1.md
+   /mam:impl-start
    ```
 
-9. **Complete Implementation Work**:
+5. **Complete & Return to Architect**:
    ```
    /mam:impl-finalize
+   /mam:arch-sprint-complete
    ```
 
-10. **Back to Architect Session**:
-    ```
-    /mam:arch-sprint-complete @docs/implementation_log_sprint1.md
-    ```
+## Quick Start (MAMA - Subagent-based)
 
-Then repeat the sprint cycle as needed.
+1. **Initialize** (you are the Architect):
+   ```
+   /mama:arch-init
+   ```
+
+2. **Plan Sprint**:
+   ```
+   /mama:arch-sprint-plan
+   ```
+
+3. **Delegate to Implementor Subagent**:
+   ```
+   /mama:impl-start Sprint 1
+   ```
+   → Implementor works as subagent, maintains context via resume
+
+4. **Complete Sprint**:
+   ```
+   /mama:impl-finalize
+   /mama:arch-sprint-complete
+   ```
 
 ## Commands
 
-### Architect Commands
+Both plugins share the same command names, just with different namespaces (`/mam:` vs `/mama:`):
 
+### Architect Commands
 | Command | Purpose |
 |---------|---------|
-| `arch-init` | Initialize project, set patterns, establish Architect role |
-| `arch-resume` | Resume in-flight project, establish/correct current state |
-| `arch-discuss` | Engage in architectural discussion, build understanding |
-| `arch-create-docs` | Create initial product documentation |
+| `arch-init` | Initialize project, set patterns |
+| `arch-resume` | Resume in-flight project |
+| `arch-discuss` | Architectural discussion |
+| `arch-create-docs` | Create product documentation |
 | `arch-roadmap` | Create implementation roadmap |
-| `arch-sprint-plan` | Begin planning next sprint (auto-loads context) |
-| `arch-feedback` | Process user feedback, extract deltas, align on scope |
-| `arch-sprint-finalize` | Finalize scope, write implementation plan and brief |
-| `arch-sprint-complete` | Process completed sprint (auto-loads context) |
-| `arch-user-story` | Capture and discuss user stories |
-| `ux-consult` | Collaborate with UX Designer subagent |
+| `arch-sprint-plan` | Plan next sprint |
+| `arch-feedback` | Process user feedback |
+| `arch-sprint-finalize` | Finalize sprint scope |
+| `arch-sprint-complete` | Complete sprint, reconcile docs |
+| `arch-user-story` | Capture user stories |
+| `ux-consult` | Collaborate with UX Designer |
 
 ### Implementor Commands
-
-| Command | Purpose |
-|---------|---------|
-| `impl-start` | Begin implementation, read brief, proceed |
-| `impl-finalize` | Wrap up implementation, complete log, write retrospective |
+| Command | MAM Behavior | MAMA Behavior |
+|---------|--------------|---------------|
+| `impl-start` | Read brief, begin work | Delegate to Implementor subagent |
+| `impl-finalize` | Write retrospective | Have subagent write retrospective |
 
 ### Shared Commands
-
 | Command | Purpose |
 |---------|---------|
-| `pattern-add` | Add or update a project pattern in CLAUDE.md |
-
-## Working with Two Sessions
-
-This methodology works best with two separate Claude Code sessions:
-
-1. **Architect Session**: Long-running session that maintains design context
-2. **Implementor Session**: Separate session focused on execution
-
-The sessions communicate through documents:
-- Architect creates briefs and plans -> Implementor reads them
-- Implementor creates logs -> Architect reads them
-
-This separation keeps contexts focused, allows specialization, and creates natural handoff points for review.
+| `pattern-add` | Add project patterns to CLAUDE.md |
 
 ## Project Structure
 
@@ -142,7 +135,7 @@ your-project/
 ├── .claude/
 │   └── CLAUDE.md          # Project patterns and context
 ├── docs/
-│   ├── [product_docs]     # Product documentation (structure varies)
+│   ├── [product_docs]     # Product documentation
 │   ├── roadmap.md         # Implementation roadmap
 │   ├── delta_XX_*.md      # Design deltas
 │   ├── implementation_plan_sprintX.md
@@ -150,37 +143,6 @@ your-project/
 │   └── implementation_log_sprintX.md
 └── [source code]
 ```
-
-## Resuming In-Flight Projects
-
-When you start a Claude Code session on an existing project:
-
-1. **Auto-Detection**: The plugin automatically detects project state on session start
-2. **Correction**: If the detected state is wrong, tell the Architect: "We're actually in sprint 5"
-3. **Explicit Resume**: Use `/mam:arch-resume` for full state review and correction
-
-The plugin scans for:
-- Current sprint info in `.claude/CLAUDE.md`
-- Sprint artifacts in `docs/` (plans, briefs, logs)
-- Active deltas
-
-## UX Designer Collaboration
-
-The Architect can invoke a UX Designer subagent for design collaboration:
-
-```
-/mam:ux-consult
-
-Help me design the user interaction patterns for the dashboard feature.
-```
-
-The UX Designer:
-- Analyzes product documentation for UX implications
-- Proposes design patterns, flows, and visual systems
-- Creates design artifacts (style guides, component specs)
-- Uses **persistent context** for continuity across sessions
-
-To maintain continuity, note the agent ID from your first UX session and use resume in subsequent sessions.
 
 ## Philosophy
 
@@ -192,6 +154,21 @@ This methodology embraces that:
 - Claude is damn smart and can recognize what's needed
 
 Work with Claude as a thinking partner, not just a tool.
+
+## Repository Structure
+
+```
+cc-methodology/
+├── plugins/
+│   ├── mam/              # Session-based plugin
+│   └── mama/             # Subagent-based plugin
+├── tools/                # Migration utilities
+└── docs/                 # Design documentation
+```
+
+See individual plugin READMEs for detailed documentation:
+- [MAM README](plugins/mam/README.md)
+- [MAMA README](plugins/mama/README.md)
 
 ## License
 

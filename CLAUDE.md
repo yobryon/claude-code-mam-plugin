@@ -13,25 +13,45 @@ This plugin follows the Claude Code plugin specification:
 ```
 cc-methodology/
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest (name, version, description)
-├── skills/
-│   └── multi-agent-methodology/
-│       ├── SKILL.md             # Core methodology reference
-│       └── templates/           # Document templates
-├── commands/                    # Slash commands (*.md files)
-│   ├── arch-*.md               # Architect commands
-│   ├── impl-*.md               # Implementor commands
-│   ├── ux-consult.md           # UX Designer collaboration
-│   └── pattern-add.md          # Shared command
-├── agents/
-│   └── ux-designer/
-│       └── agent.json           # UX Designer subagent
-├── hooks/
-│   └── hooks.json               # SessionStart hook for state detection
-└── docs/                        # Design-time documentation (not part of plugin)
+│   └── marketplace.json         # Marketplace advertising both plugins
+├── plugins/
+│   ├── mam/                     # Session-based variant
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── skills/
+│   │   ├── commands/
+│   │   ├── agents/
+│   │   │   └── ux-designer/
+│   │   └── hooks/
+│   └── mama/                    # Subagent-based variant
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       ├── skills/
+│       ├── commands/
+│       ├── agents/
+│       │   ├── ux-designer/
+│       │   └── implementor/     # Implementor as subagent
+│       └── hooks/
+├── tools/                       # Migration and utility scripts
+├── docs/                        # Design-time documentation (not part of plugins)
+└── README.md
 ```
 
 **Critical**: `commands/`, `skills/`, `hooks/`, and `agents/` must be at the **plugin root**, NOT inside `.claude-plugin/`.
+
+## Two Plugin Variants
+
+### MAM (Multi-Agent Methodology)
+Session-based workflow where you run Architect and Implementor as separate Claude sessions.
+- Commands namespaced as `/mam:arch-init`, `/mam:impl-start`, etc.
+- Handoff via document files (briefs, plans, logs)
+- Good for explicit context separation
+
+### MAMA (Multi-Agent Methodology with Agents)
+Subagent-based workflow where Architect orchestrates Implementor and UX Designer as persistent subagents.
+- Commands namespaced as `/mama:arch-init`, `/mama:impl-start`, etc.
+- Implementor and UX Designer maintain context across sessions via resume
+- Good for context continuity across sprints
 
 ## Commands
 
@@ -49,7 +69,7 @@ cc-methodology/
 - `/ux-consult` - Collaborate with UX Designer subagent
 
 ### Implementor Commands
-- `/impl-start` - Begin implementation, read brief (auto-loads context)
+- `/impl-start` - Begin implementation (MAM: read brief; MAMA: delegate to subagent)
 - `/impl-finalize` - Wrap up implementation with retrospective
 
 ### Shared Commands
@@ -75,32 +95,19 @@ $ARGUMENTS
 - `$ARGUMENTS` is replaced with user input when invoked
 - `allowed-tools` restricts which tools Claude can use during command execution
 
-## Skill File Format
-
-Skills use the same markdown + frontmatter format in a `SKILL.md` file:
-
-```markdown
----
-name: skill-name
-description: When/how to use this skill (Claude uses this to auto-invoke)
----
-
-# Skill Content
-
-Reference content or instructions.
-```
-
-## Testing the Plugin
+## Testing the Plugins
 
 ```bash
-# Test locally during development
-claude --plugin-dir ./
+# Test MAM locally
+claude --plugin-dir ./plugins/mam
 
-# Invoke a command
-/mam:arch-init
+# Test MAMA locally
+claude --plugin-dir ./plugins/mama
+
+# Invoke commands
+/mam:arch-init    # for MAM
+/mama:arch-init   # for MAMA
 ```
-
-Commands are namespaced by plugin name when installed as a plugin.
 
 ## Key Concepts
 

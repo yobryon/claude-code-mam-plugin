@@ -1,0 +1,21 @@
+{
+  "name": "bryon-cc-plugins",
+  "owner": {
+    "name": "Bryon Williams",
+    "email": "bryon.williams@live.com"
+  },
+  "plugins": [
+    {
+      "name": "mam",
+      "source": "./plugins/mam",
+      "description": "Multi-Agent Methodology - session-based Architect/Implementor workflow for complex software projects",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mama",
+      "source": "./plugins/mama",
+      "description": "Multi-Agent Methodology with Agents - subagent-based workflow with persistent Implementor and UX Designer contexts",
+      "version": "1.0.0"
+    }
+  ]
+}
