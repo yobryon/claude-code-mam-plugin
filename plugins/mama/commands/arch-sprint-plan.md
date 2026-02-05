@@ -66,7 +66,7 @@ Present your proposal conversationally, covering:
 ## Before You Begin
 
 Read these files to establish context:
-1. `.claude/CLAUDE.md` - Current sprint state
+1. `CLAUDE.md` - Current sprint state
 2. `docs/roadmap.md` - Roadmap status
 3. Recent sprint artifacts (use Glob for `docs/implementation_*sprint*.md`)
 4. Active deltas (use Glob for `docs/delta_*.md`)

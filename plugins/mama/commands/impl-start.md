@@ -21,13 +21,13 @@ The Implementor is a specialized subagent that:
 **Always use persistent context with the Implementor.** This means:
 1. If this is the first implementation session, start fresh and note the agent ID
 2. If continuing previous work, **resume the previous session** using the stored agent ID
-3. Store the Implementor's agent ID in the project for future sessions (e.g., in `.claude/CLAUDE.md`)
+3. Store the Implementor's agent ID in the project for future sessions (e.g., in `CLAUDE.md`)
 
 This ensures the Implementor maintains understanding of the codebase and work across sessions.
 
 ## Your Task
 
-1. **Check for Existing Implementor Session**: Look for an Implementor agent ID in `.claude/CLAUDE.md` or project notes
+1. **Check for Existing Implementor Session**: Look for an Implementor agent ID in `CLAUDE.md` or project notes
 
 2. **Gather Context**: Find the relevant files:
    - Implementor brief (`docs/implementor_brief_sprint*.md`)
@@ -50,7 +50,7 @@ This ensures the Implementor maintains understanding of the codebase and work ac
 ```
 Use the Task tool:
 - subagent_type: "implementor"
-- prompt: "Begin implementation for Sprint 11. Read the brief at docs/implementor_brief_sprint11.md and the plan at docs/implementation_plan_sprint11.md. Follow project patterns in .claude/CLAUDE.md. Create and maintain the implementation log."
+- prompt: "Begin implementation for Sprint 11. Read the brief at docs/implementor_brief_sprint11.md and the plan at docs/implementation_plan_sprint11.md. Follow project patterns in CLAUDE.md. Create and maintain the implementation log."
 ```
 
 ## Example Invocation (Resume Session)

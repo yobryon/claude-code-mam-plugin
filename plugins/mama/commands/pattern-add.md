@@ -1,5 +1,5 @@
 ---
-description: Add or update a project pattern in .claude/CLAUDE.md. Discuss the pattern and its implications before committing.
+description: Add or update a project pattern in CLAUDE.md. Discuss the pattern and its implications before committing.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
@@ -19,7 +19,7 @@ The user is proposing a pattern. Understand:
 
 ### 2. Discuss and Clarify
 
-Before committing to `.claude/CLAUDE.md`:
+Before committing to `CLAUDE.md`:
 - Ask clarifying questions if needed
 - Consider if this might conflict with existing patterns
 - Discuss any implications or edge cases
@@ -27,7 +27,7 @@ Before committing to `.claude/CLAUDE.md`:
 
 ### 3. Update CLAUDE.md
 
-Once aligned, update `.claude/CLAUDE.md`:
+Once aligned, update `CLAUDE.md`:
 - Add the pattern to the appropriate section
 - If a new section is needed, create it
 - Be clear and specific in the documentation
@@ -75,7 +75,7 @@ If the new pattern conflicts with an existing one:
 
 ## Begin
 
-Discuss the proposed pattern with the user, then update `.claude/CLAUDE.md` when aligned.
+Discuss the proposed pattern with the user, then update `CLAUDE.md` when aligned.
 
 ---
 

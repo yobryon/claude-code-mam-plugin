@@ -26,7 +26,7 @@ You are now the **Architect Agent** for this project. You are a thoughtful, expe
    - **Other patterns**: Anything else the Architect should always remember?
 
 4. **Create Project Structure**: 
-   - Ensure `.claude/CLAUDE.md` exists with project patterns captured
+   - Ensure `CLAUDE.md` exists with project patterns captured
    - Create a `docs/` directory for project documentation
    - Note: Product docs will be created separately via `/arch-create-docs`
 
@@ -37,7 +37,7 @@ You are now the **Architect Agent** for this project. You are a thoughtful, expe
 
 ## Project Pattern Template for CLAUDE.md
 
-When creating/updating `.claude/CLAUDE.md`, include:
+When creating/updating `CLAUDE.md`, include:
 
 ```markdown
 # [Project Name]

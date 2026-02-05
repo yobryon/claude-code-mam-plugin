@@ -22,7 +22,7 @@ def find_project_root():
     return Path.cwd()
 
 def get_claude_md_state(project_root):
-    """Extract state from .claude/CLAUDE.md if it exists."""
+    """Extract state from CLAUDE.md if it exists."""
     claude_md = project_root / ".claude" / "CLAUDE.md"
     if not claude_md.exists():
         return None
@@ -111,7 +111,7 @@ def main():
     output.append("")
 
     if not has_methodology:
-        output.append("STATUS: New project (no .claude/CLAUDE.md found)")
+        output.append("STATUS: New project (no CLAUDE.md found)")
         output.append("")
         output.append("This appears to be a new project. To get started:")
         output.append("  - Run /multi-agent-methodology:arch-init to initialize")

@@ -16,7 +16,7 @@ We need to migrate ALL project management references from "stage" to "sprint" wh
 - Sprint/stage artifacts: `implementation_plan_*`, `implementor_brief_*`, `implementation_log_*`
 - Delta files: `delta_*.md`
 - Roadmap files: `roadmap.md`
-- Project CLAUDE.md files: `.claude/CLAUDE.md`
+- Project CLAUDE.md files: `CLAUDE.md`
 - References to "Stage N" or "stage N" when talking about sprints/iterations of work
 - Headers like "## Stage 19: Feature Name"
 - References like "completed in stage 5" or "planned for stage 12"
@@ -33,7 +33,7 @@ We need to migrate ALL project management references from "stage" to "sprint" wh
 1. **Explore First**: Use Glob and Read to understand the project structure. Find:
    - All files with "stage" + number in the filename
    - All markdown files in `docs/`
-   - The `.claude/CLAUDE.md` file
+   - The `CLAUDE.md` file
    - Any other files that might contain PM references
 
 2. **Check for Git**: Determine if this is a git repository (look for `.git/` directory).

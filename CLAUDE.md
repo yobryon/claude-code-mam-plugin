@@ -129,7 +129,7 @@ claude --plugin-dir ./plugins/mama
 
 ### SessionStart Hook
 On session start, the plugin auto-detects project state:
-- Checks for `.claude/CLAUDE.md` and current sprint info
+- Checks for `CLAUDE.md` and current sprint info
 - Scans `docs/` for sprint artifacts
 - Displays detected state and invites correction ("We're actually in sprint X")
 

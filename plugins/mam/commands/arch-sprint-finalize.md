@@ -25,7 +25,7 @@ You are the **Architect Agent**. You and the user have aligned on the sprint sco
    - Summarize key decisions already made
    - Define scope boundaries (in/out)
    - List key files and systems
-   - Include project patterns from `.claude/CLAUDE.md`
+   - Include project patterns from `CLAUDE.md`
    - Reference the implementation plan
    - See the template in the multi-agent-methodology skill for structure
 

@@ -18,7 +18,7 @@ This command helps establish context when:
 
 Read the following files to establish context (use your Read tool):
 
-1. **Project CLAUDE.md**: `.claude/CLAUDE.md` - Check current sprint state
+1. **Project CLAUDE.md**: `CLAUDE.md` - Check current sprint state
 2. **Sprint Artifacts**: List files in `docs/` matching `implementation_*sprint*.md` and `implementor_brief_sprint*.md`
 3. **Active Deltas**: List files in `docs/` matching `delta_*.md`
 4. **Roadmap**: `docs/roadmap.md` if it exists

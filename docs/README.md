@@ -178,7 +178,7 @@ Use `/arch-init` or `/pattern-add` to establish patterns like:
 - Testing conventions
 - Code style
 
-These are captured in `.claude/CLAUDE.md` and respected by both agents.
+These are captured in `CLAUDE.md` and respected by both agents.
 
 ### Documentation Structure
 

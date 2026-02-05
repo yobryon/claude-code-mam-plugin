@@ -256,4 +256,4 @@ Each project may have specific patterns that should be respected:
 - Testing conventions
 - Code style preferences
 
-These are captured in the project's `.claude/CLAUDE.md` file and should be honored by both agents.
+These are captured in the project's `CLAUDE.md` file and should be honored by both agents.

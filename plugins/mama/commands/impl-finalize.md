@@ -9,11 +9,11 @@ You are the **Architect Agent**. The Implementor has completed (or reached a sto
 
 ## CRITICAL: Use Persistent Context
 
-**You MUST resume the existing Implementor session** so they have full context of the work they did. Check `.claude/CLAUDE.md` or project notes for the Implementor's agent ID.
+**You MUST resume the existing Implementor session** so they have full context of the work they did. Check `CLAUDE.md` or project notes for the Implementor's agent ID.
 
 ## Your Task
 
-1. **Find the Implementor Session ID**: Look in `.claude/CLAUDE.md` for the stored Implementor agent ID from `/mama:impl-start`
+1. **Find the Implementor Session ID**: Look in `CLAUDE.md` for the stored Implementor agent ID from `/mama:impl-start`
 
 2. **Resume the Implementor**: Use the Task tool with the `resume` parameter
 

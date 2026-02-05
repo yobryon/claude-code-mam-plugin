@@ -27,7 +27,7 @@ This ensures the UX Designer maintains coherent understanding across consultatio
 
 ## Your Task
 
-1. **Check for Existing UX Session**: Look for a UX Designer agent ID in project notes or `.claude/CLAUDE.md`
+1. **Check for Existing UX Session**: Look for a UX Designer agent ID in project notes or `CLAUDE.md`
 
 2. **Prepare Context**: Gather relevant materials:
    - Product documentation

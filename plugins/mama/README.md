@@ -63,7 +63,7 @@ claude --plugin-dir /path/to/plugins/mama
 → Claude invokes Implementor subagent
 → Implementor does the work
 → Claude receives agent ID (e.g., "agent-abc123")
-→ Store this ID in .claude/CLAUDE.md for next time
+→ Store this ID in CLAUDE.md for next time
 ```
 
 ### Resuming a Subagent
@@ -71,14 +71,14 @@ claude --plugin-dir /path/to/plugins/mama
 ```
 /mama:impl-start Continue from where we left off
 
-→ Claude reads stored agent ID from .claude/CLAUDE.md
+→ Claude reads stored agent ID from CLAUDE.md
 → Resumes the previous Implementor session
 → Implementor has full context of previous work
 ```
 
 ### Storing Agent IDs
 
-Add to your project's `.claude/CLAUDE.md`:
+Add to your project's `CLAUDE.md`:
 
 ```markdown
 ## Subagent Sessions
