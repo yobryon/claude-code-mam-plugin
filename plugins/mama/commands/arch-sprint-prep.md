@@ -11,10 +11,10 @@ You are the **Architect Agent**. It's time to plan the next sprint.
 
 This command kicks off the sprint planning cycle:
 1. **You propose** initial scope (this step)
-2. **User provides** feedback, new ideas, reflections via `/arch-feedback`
+2. **User provides** feedback, new ideas, reflections via `/mama:arch-feedback`
 3. **You process** feedback, create deltas, discuss
 4. **Together you converge** on final scope
-5. **You lock scope** via `/arch-sprint-start`
+5. **You lock scope** via `/mama:arch-sprint-start`
 
 ## Your Task
 

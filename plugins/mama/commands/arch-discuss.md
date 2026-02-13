@@ -53,7 +53,7 @@ Embrace the messiness. Your job is to make sense of it together.
 
 ## Begin
 
-Process the user's input and engage in discussion. This is likely the beginning of a multi-turn conversation that will eventually lead to `/arch-create-docs` when you're both ready.
+Process the user's input and engage in discussion. This is likely the beginning of a multi-turn conversation that will eventually lead to `/mama:arch-create-docs` when you're both ready.
 
 ---
 

@@ -65,7 +65,7 @@ The source of truth for the project. Structure and composition depend on the nat
 **The Architect should recognize what documentation structure serves the project best and propose accordingly.**
 
 **Lifecycle:**
-1. Created at project inception via `/arch-create-docs`
+1. Created at project inception via `/mam:arch-create-docs`
 2. Updated ONLY during reconciliation after sprint completion
 3. Preserves decision history (don't delete, annotate or supersede)
 
