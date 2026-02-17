@@ -38,13 +38,13 @@ claude plugin marketplace add yobryon/methodical-cc
 ```bash
 
 # Product design thinking
-claude plugin install pdt
+claude plugin install pdt@methodical-cc
 
 # Session-based implementation workflow
-claude plugin install mam
+claude plugin install mam@methodical-cc
 
 # Subagent-based implementation workflow
-claude plugin install mama
+claude plugin install mama@methodical-cc
 ```
 
 ### Test Locally
