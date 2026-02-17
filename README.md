@@ -27,9 +27,16 @@ PDT is the natural predecessor to MAM/MAMA. Design your product with PDT, then b
 
 ## Installation
 
+### Adding the Marketplace
+
+```bash
+claude plugin marketplace add yobryon/methodical-cc
+```
+
 ### From Marketplace
 
 ```bash
+
 # Product design thinking
 claude plugin install pdt
 
